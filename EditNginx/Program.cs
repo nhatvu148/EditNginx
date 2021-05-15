@@ -20,7 +20,9 @@ namespace EditNginx
             "        }", "", "        location /api/ {", "            proxy_pass http://backend-server;", "        }", "",
             "        error_page  404              /404.html;", "", "        # redirect server error pages to the static page /50x.html",
             "        #", "        error_page   500 502 503 504  /50x.html;", "        location = /50x.html {", "            root   html;",
-            "        }", "    }", "}"};
+            "        }", "    }", "", "    server {", "        listen       5005;", "        server_name  localhost;", "",
+            "        location / {", "            root ../../cug_viewer/dist/example-cug-viewer;", "		    index index.html;", "",
+            "            try_files $uri /index.html;", "        }", "    }", "}"};
 
             await File.WriteAllLinesAsync(confFile, lines);
         }
