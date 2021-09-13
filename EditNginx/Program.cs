@@ -98,7 +98,8 @@ namespace EditNginx
             {
                 portProd = "60606";
                 port = "56789";
-                nginxDir = @"D:\AKIYAMA\Work\EditNginx\nginx";
+                // nginxDir = @"D:\AKIYAMA\Work\EditNginx\nginx";
+                nginxDir = "/Users/nhatvu148/Work/Csharp/EditNginx/nginx";
             }
             else
             {
@@ -110,14 +111,14 @@ namespace EditNginx
             await EditNginxAsync(portProd, port, $"{nginxDir}/conf/nginx.conf");
 
             OSPlatform osType = GetOperatingSystem();
-            System.Console.WriteLine(osType);
+            // System.Console.WriteLine(osType);
             if (osType == OSPlatform.Windows)
             {
                 RunCmd($"cd {nginxDir} && start_nginx_wv.cmd");
             }
             else
             {
-                RunSh($"cd {nginxDir} && ./start_nginx_wv.sh");
+                // RunSh($"cd {nginxDir} && ./start_nginx_wv.sh");
             }
         }
     }
